@@ -21,3 +21,8 @@ function getRandomAlphabet() {
     // console.log(index, alphabet);
     return alphabet;
 }
+
+function setBackgroundColorById(elementid) {
+    const element = document.getElementById(elementid);
+    element.classList.add('bg-blue-600');
+}
