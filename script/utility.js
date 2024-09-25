@@ -1,8 +1,8 @@
-function hideHomeScreen(elementid) {
+function hideElementById(elementid) {
     const elementId = document.getElementById(elementid);
     elementId.classList.add('hidden');
 }
-function showPlayGround(elementid) {
+function showElementById(elementid) {
     const elementId = document.getElementById(elementid);
     elementId.classList.remove('hidden');
 }
@@ -22,7 +22,44 @@ function getRandomAlphabet() {
     return alphabet;
 }
 
+function getElementTextById(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.innerText;
+    return text;
+}
+
 function setBackgroundColorById(elementid) {
     const element = document.getElementById(elementid);
     element.classList.add('bg-blue-600');
+}
+function removeBackgroundColorById(elementid) {
+    const element = document.getElementById(elementid);
+    element.classList.remove('bg-blue-600');
+}
+
+
+
+function getTextElementById(elementid) {
+    const element = document.getElementById(elementid);
+    const elementTextValue = element.innerText;
+    const value = parseInt(elementTextValue);
+    return value;
+
+}
+
+function getTextElementValueById(elementId, value) {
+    const element = document.getElementById(elementId);
+    element.innerText = value;
+}
+
+function gameOver() {
+    hideElementById('play-ground')
+    showElementById('final-score')
+    const lastScore = document.getElementById('current-score');
+    const finalResult = lastScore.innerText;
+    getTextElementValueById('last-score', finalResult);
+
+    const currentAlphabet = getElementTextById('current-alphabet');
+    removeBackgroundColorById(currentAlphabet);
+
 }
